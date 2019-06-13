@@ -1,0 +1,13 @@
+input {
+    margin: 5px;
+    width: 75px;
+    height: 75px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.weapon-col {
+    padding: 0px;
+}

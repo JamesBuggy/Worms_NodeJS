@@ -1,0 +1,23 @@
+{
+  "name": "testgame",
+  "version": "1.0.0",
+  "description": "test game",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "get-pixels": "^3.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "planck-js": "^0.3.3",
+    "portfinder": "^1.0.20",
+    "request": "^2.88.0",
+    "socket.io": "^2.2.0",
+    "socketio-jwt": "^4.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

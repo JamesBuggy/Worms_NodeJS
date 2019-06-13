@@ -1,0 +1,10 @@
+<div><div id="canvas-container">
+  <canvas [ngClass]="{
+      'portrait-canvas': !isMobile(), 
+      'fullscreen-canvas': isMobile()
+    }" #gameCanvas></canvas>
+  <input *ngIf="isMobile()" id="menu-btn" type="image" src='../../assets/images/buttons/Menu.png' stop-focus (click)="openMenuDialog()">
+  <input *ngIf="isPlayer && !isGameOver" id="weapon-btn" type="image" src='../../assets/images/buttons/Weapons.png' stop-focus (click)="openWeaponsDialog()">
+  <input *ngIf="isPlayer && !isGameOver" id="shoot-btn" type="image" src='../../assets/images/buttons/Shoot.png' stop-focus (click)="shoot()">
+  <img *ngIf="!isGameOver" id="target" src="../../../assets/images/sprites/Target.png" #target>
+</div></div>

@@ -1,0 +1,27 @@
+<table mat-table matSort [dataSource]="dataSource">
+    
+    <ng-container matColumnDef="won">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Won </th>
+        <td mat-cell *matCellDef="let element">
+            <img class="result-icon rounded-circle" 
+                [src]="element.won ? '../../../../../assets/images/icons/won.png' : '../../../../../assets/images/icons/lose.png'">
+        </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="vs">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Vs </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.vs}}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Score </th>
+        <td mat-cell *matCellDef="let element">
+            {{element.score}}
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>

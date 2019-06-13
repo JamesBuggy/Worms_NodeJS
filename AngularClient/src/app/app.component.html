@@ -1,0 +1,7 @@
+<app-navbar></app-navbar>
+<div id="fullscreen-container" class="content" [ngClass]="{
+    'col-sm-8 offset-sm-2 app-theme': !isIngame(), 
+    'col-sm-12 offset-sm-0 game-theme': isIngame()
+  }">
+  <router-outlet></router-outlet>
+</div>

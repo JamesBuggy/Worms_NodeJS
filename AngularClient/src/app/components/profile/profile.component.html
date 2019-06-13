@@ -1,0 +1,46 @@
+<div class="col-sm-12">
+  <div class="col-sm-12 title-area">
+    <h1 *ngIf="profile">{{profile.username}}</h1>
+  </div>
+  <div class="col-sm-12 row pad-top" *ngIf="profile">
+    <div class="col-sm-4 profile-img-container">
+        <img class="profile-img rounded-circle" src="{{profileService.apiRoot}}{{profile.image}}" alt="../../../assets/images/profile-default.png">
+        <input *ngIf="form.enabled && allowEdit" id="profile-img-btn" type="image" src="../../assets/images/buttons/Pencil.png" (click)="openImageDialog()">
+    </div>
+    <form [formGroup]="form" class="col-sm-8 pad-top">
+      <mat-form-field class="col-sm-12 profile-row row">
+        <input matInput [(ngModel)]="profile.name" class="name" type="text" name="name" formControlName="name" placeholder="Name...">
+        <mat-error *ngIf="form.hasError('maxlength', 'name')">
+          Name cannot exceed fifty characters
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-sm-12 profile-row row">
+        <input matInput [(ngModel)]="profile.location" class="location" type="text" name="location" formControlName="location" placeholder="Location...">
+        <mat-error *ngIf="form.hasError('maxlength', 'location')">
+          Location cannot exceed fifteen characters
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="col-sm-12 profile-row row">
+        <textarea matInput [(ngModel)]="profile.description" class="description" type="text" name="description" formControlName="description" placeholder="Description..."></textarea>
+        <mat-error *ngIf="form.hasError('maxlength', 'description')">
+          Description exceed one hundred characters
+        </mat-error>
+      </mat-form-field>
+      <div class="col-sm-12 btn-group" role="group">
+        <button *ngIf="form.enabled && allowEdit" class="btn btn-danger" (click)="deleteProfile()">Delete</button>
+        <button *ngIf="form.disabled && allowEdit" class="btn btn-primary" (click)="editProfile()">Edit</button>
+        <button *ngIf="form.enabled && allowEdit" class="btn btn-primary" (click)="saveProfile()">Save</button>
+      </div>
+    </form>
+    <div class="col-sm-12">
+      <mat-tab-group mat-stretch-tabs>
+        <mat-tab label="Match History">
+          <app-history></app-history>
+        </mat-tab>
+        <mat-tab label="Team">
+          <app-team></app-team>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

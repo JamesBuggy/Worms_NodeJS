@@ -1,0 +1,65 @@
+<div class="col-sm-12 center-fields">
+  <div class="col-sm-12 title-area">
+    <h1>Sign Up</h1>
+  </div>
+  <form [formGroup]="form" class="col-sm-12">
+    <fieldset class="col-sm-12">
+      <div class="form-group col-sm-12">
+        <mat-form-field class="col-sm-6">
+          <input autofocus matInput placeholder="Username" formControlName="username" required>
+          <mat-error *ngIf="form.hasError('required', 'username')">
+            Username is required
+          </mat-error>
+          <mat-error *ngIf="form.hasError('usernameExists', 'username')">
+            Username is not available
+          </mat-error>
+          <mat-error *ngIf="form.hasError('minlength', 'username')">
+            Username must be at least five characters
+          </mat-error>
+          <mat-error *ngIf="form.hasError('maxlength', 'username')">
+            Username cannot exceed fifteen characters
+          </mat-error>
+          <mat-error *ngIf="form.hasError('pattern', 'username')">
+            Username must be alphanumeric
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <fieldset id="password-group" [formGroup]="formPasswords" class="col-sm-12">
+        <div class="form-group col-sm-12">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Password" formControlName="password" type="password" required>
+            <mat-error *ngIf="formPasswords.hasError('required', 'password')">
+              Please enter your password
+            </mat-error>
+            <mat-error *ngIf="formPasswords.hasError('minlength', 'password')">
+              Password must be at least five characters
+            </mat-error>
+            <mat-error *ngIf="formPasswords.hasError('maxlength', 'password')">
+              Password cannot exceed fifteen characters
+            </mat-error>
+            <mat-error *ngIf="formPasswords.hasError('whitespace', 'password')">
+              Password cannot contain whitespace
+            </mat-error>
+            <mat-error *ngIf="formPasswords.hasError('upperCaseRequired', 'password')">
+              Password must contain an uppercase letter
+            </mat-error>
+            <mat-error *ngIf="formPasswords.hasError('numberRequired', 'password')">
+              Password must contain a number
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-sm-12">
+          <mat-form-field class="col-sm-6">
+            <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" [errorStateMatcher]="errorMatcher">
+            <mat-error *ngIf="formPasswords.hasError('notSame')">
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </fieldset>
+    </fieldset>
+    <div class="form-btns col-sm-12">
+      <button class="btn btn-primary" (click)="signUp()">Sign Up</button>
+    </div>
+  </form>
+</div>

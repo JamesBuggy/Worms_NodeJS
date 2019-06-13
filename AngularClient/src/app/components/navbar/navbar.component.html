@@ -1,0 +1,39 @@
+<nav *ngIf="!hideNavBar()" class="navbar navbar-expand-md navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Worms</a>
+  <div>
+      <ul class="nav">
+          <li class="nav-item">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          </li>
+      </ul>     
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="nav navbar-nav mr-auto">
+      <li class="nav-item" data-toggle="collapse" data-target="#navbar">
+        <a class="nav-link" routerLink="/servers">Servers</a>
+      </li>
+      <li *ngIf="this.authService.isLoggedIn()" class="nav-item" data-toggle="collapse" data-target="#navbar">
+        <a class="nav-link" routerLink="/highscores">High Scores</a>
+      </li>
+      <li *ngIf="this.authService.isLoggedIn()" class="nav-item" data-toggle="collapse" data-target="#navbar">
+        <a class="nav-link" routerLink="/profiles">Profiles</a>
+      </li>
+      <li *ngIf="this.authService.isLoggedIn()" class="nav-item" data-toggle="collapse" data-target="#navbar">
+        <a class="nav-link" routerLink="/profile/{{authService.getLoggedInUser()}}">My Profile</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto">
+      <li *ngIf="this.authService.isLoggedIn()" class="nav-item" data-toggle="collapse" data-target="#navbar">
+          <a class="nav-link" routerLink="/" (click)="logout()">Logout</a>
+      </li>
+      <li *ngIf="!this.authService.isLoggedIn()" class="nav-item" data-toggle="collapse" data-target="#navbar">
+          <a class="nav-link" routerLink="/" (click)="login()">Login</a>
+      </li>
+    </ul>
+  </div>
+  
+</nav>

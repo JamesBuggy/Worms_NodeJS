@@ -1,0 +1,51 @@
+canvas {
+    border: 5px solid black;
+    position: relative;
+}
+
+input {
+    width: 75px;
+    height: 75px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.portrait-canvas {
+    width: 100%;
+}
+
+.fullscreen-canvas {
+    height: 100vh;
+}
+
+#canvas-container {
+    position: relative;
+}
+
+#menu-btn {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+}
+
+#weapon-btn {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+
+#shoot-btn {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+#target {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}

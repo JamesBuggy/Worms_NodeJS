@@ -1,0 +1,50 @@
+<div *ngIf="!team" class="col-sm-12 center-fields team-view">
+  <p *ngIf="!allowEdit">No team information available</p>
+  <button *ngIf="allowEdit" class="btn btn-primary" (click)="createTeam()">Create Team</button>
+</div>
+
+<div *ngIf="team" class="col-sm-12">
+  <form [formGroup]="form">
+    <div class="col-sm-4 offset-sm-8 btn-group" role="group">
+        <button id="edit-btn" *ngIf="form.disabled && allowEdit" class="btn btn-primary" (click)="editTeam()">Edit</button>
+        <button id="save-btn" *ngIf="form.enabled && allowEdit" class="btn btn-primary" (click)="saveTeam()">Save</button>
+    </div>
+    <fieldset class="col-sm-12 center-fields team-view">
+        <div class="form-group col-sm-12">
+          <mat-form-field class="col-sm-12">
+            <input matInput type="text" [(ngModel)]="team.name" placeholder="Team Name..." formControlName="teamName">
+            <mat-error *ngIf="form.hasError('required', 'teamName')">
+              Team name is required
+            </mat-error>
+            <mat-error *ngIf="form.hasError('minlength', 'teamName')">
+              Must be at least five characters
+            </mat-error>
+            <mat-error *ngIf="form.hasError('maxlength', 'teamName')">
+              Cannot exceed fifteen characters
+            </mat-error>
+            <mat-error *ngIf="form.hasError('pattern', 'teamName')">
+              Must conatain only letters, numbers or spaces
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-sm-12" *ngFor="let worm of team.worms; let i = index;">
+          <img class="worm-img rounded-circle col-sm-4" src="../../../../../assets/images/icons/worm.png">
+          <mat-form-field class="col-sm-8">
+            <input matInput type="text" [(ngModel)]="worm.name" placeholder="Worm Name..." formControlName="wormName{{i}}" name="worm{{i}}">
+            <mat-error *ngIf="form.hasError('required', 'wormName'+i)">
+              Worm name is required
+            </mat-error>
+            <mat-error *ngIf="form.hasError('minlength', 'wormName'+i)">
+              Must be at least two characters
+            </mat-error>
+            <mat-error *ngIf="form.hasError('maxlength', 'wormName'+i)">
+              Cannot exceed fifteen characters
+            </mat-error>
+            <mat-error *ngIf="form.hasError('pattern', 'wormName'+i)">
+              Must be alphanumeric
+            </mat-error>
+          </mat-form-field>
+        </div>
+    </fieldset>
+  </form>
+</div>

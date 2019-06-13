@@ -1,0 +1,8 @@
+<div class="image-dialog center-fields">
+    <h1 mat-dialog-title>Profile Images</h1>
+    <mat-grid-list cols="4" rowHeight="2:2">
+        <mat-grid-tile class="image" *ngFor="let image of images; let i = index;">
+            <input type="image" src='{{profileService.apiRoot}}{{image}}' (click)="close(image)">
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

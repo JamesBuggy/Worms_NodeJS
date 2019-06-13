@@ -1,0 +1,46 @@
+<div class="col-sm-12">
+  <div class="col-sm-12 title-area row">
+    <form class="col-sm-12" [formGroup]="form">
+      <h1>High Scores</h1>
+      <mat-form-field class="col-sm-6">
+        <input matInput placeholder="Search" type="text" formControlName="search" [matAutocomplete]="auto">
+      </mat-form-field>
+      <mat-autocomplete (optionSelected)="search()" #auto="matAutocomplete">
+        <mat-option *ngFor="let match of autoCompleteResults | async" [value]="match.username">
+          <span>{{match.username}}</span>
+        </mat-option>
+      </mat-autocomplete>
+      <div class="col-sm-6 btn-group" role="group">
+        <button class="btn btn-primary" (click)="search()">Search</button>
+        <button class="btn btn-secondary" (click)="refresh()">Refresh</button>
+      </div>
+    </form>
+  </div>
+  <table class="col-sm-12" mat-table matSort [dataSource]="dataSource">
+
+    <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+        <td mat-cell *matCellDef="let element">
+          <a routerLink="/profile/{{element.username}}">{{element.username}}</a>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="vs">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Vs </th>
+      <td mat-cell *matCellDef="let element">
+        <a routerLink="/profile/{{element.vs}}">{{element.vs}}</a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Score </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.score}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

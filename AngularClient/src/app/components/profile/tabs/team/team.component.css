@@ -1,0 +1,18 @@
+form {
+    padding-top: 30px;
+}
+
+.worm-img {
+    padding: 0px;
+    width: 40px;
+    height: 40px;
+}
+
+.team-view {
+    padding-top: 30px;
+}
+
+#edit-btn, #save-btn {
+    float: right;
+    margin-top: 15px;
+}

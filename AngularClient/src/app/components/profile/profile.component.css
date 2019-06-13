@@ -1,0 +1,51 @@
+.profile-row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin: 15px;
+}
+
+button {
+    margin-left: auto;
+}
+
+.profile-img-container {
+    margin: auto;
+}
+
+.pad-top {
+    padding-top: 30px;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+}
+
+#profile-img-btn {
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    width: 20%;
+    height: 25%;
+}
+
+p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.name {
+    margin-left: auto;
+}
+
+.location {
+    margin-left: auto;
+}
+
+.description {
+    width: 100%;
+}
