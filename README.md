@@ -1,4 +1,6 @@
-# WEB9810-C_WebAppArch_D18124329
+# NodeJS Worms Clone
+
+## Dublin Institute of Technology Web Architecture Project
 
 Note: view "./Architecture.png" to see the high level architecture.
 
