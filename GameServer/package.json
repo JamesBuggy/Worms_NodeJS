@@ -10,7 +10,7 @@
     "planck-js": "^0.3.3",
     "portfinder": "^1.0.20",
     "request": "^2.88.0",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.4.0",
     "socketio-jwt": "^4.5.0"
   },
   "devDependencies": {},
